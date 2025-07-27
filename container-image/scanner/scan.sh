@@ -38,7 +38,7 @@ fi
 note_echo "Processing $repo_slugs"
 
 # Glob on spaces intentionally
-env LOG_LEVEL=warn OUT_DIR=out/renovate-graph renovate-graph $repo_slugs
+env LOG_LEVEL=warn OUT_DIR=out/renovate-graph RENOVATE_DRY_RUN=lookup renovate-graph $repo_slugs
 # some users may want to use GitLab, so we shouldn't run `dependabot-graph` against them
 if [[ -z "${RENOVATE_PLATFORM:-}" || "github" == "${RENOVATE_PLATFORM:-}" ]]; then
     # Glob on spaces intentionally
