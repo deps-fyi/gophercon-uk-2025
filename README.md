@@ -10,6 +10,12 @@ For simplicity, there is a `make` task to download the scanning image, which con
 make -C ./container-image/scanner pull
 ```
 
+It can also be manually downloaded via:
+
+```sh
+docker pull ghcr.io/deps-fyi/gophercon-uk-2025:latest
+```
+
 This image will scan given repo(s) with:
 
 - [`renovate-graph`](https://gitlab.com/tanna.dev/renovate-graph), which uses [Renovate](https://docs.renovatebot.com/) under the hood for its [wide support of supported languages and package ecosystems](https://docs.renovatebot.com/modules/manager/)
