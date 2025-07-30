@@ -1,0 +1,5 @@
+# This file was automatically generated
+name: dmd
+type: sqlite
+options:
+  filename: dmd.db
