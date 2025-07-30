@@ -4,6 +4,9 @@ This is the corresponding supporting details for the GopherCon 2025 tutorial, [_
 
 ## Scanning repos
 
+> [!NOTE]
+> If you've never logged into the GitHub Container Registry before, you'll need to follow [these instructions](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+
 For simplicity, there is a `make` task to download the scanning image, which contains prerequisites:
 
 ```sh
