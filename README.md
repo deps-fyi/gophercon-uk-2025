@@ -82,3 +82,23 @@ make -C ./container-image/scanner build
 ### `renovate-graph` debug logs
 
 For ease, it is also possible to use `make ... run-debug` to get the full `renovate-graph` debug logs for a given Renovate run.
+
+## Using example data
+
+If you don't have your laptop, or don't have access to repos you want to grab data from, you can use [this deployment of the example data](https://dmd-gophercon2025.netlify.app/).
+
+This uses [Evidence](https://evidence.dev/) to provide rich, visual breakdowns of the data.
+
+### Using Evidence with your own data
+
+If you'd like to use this set up with your own data - to see what some of the pre-written queries look like - you can follow the steps below:
+
+```sh
+cd ./web
+npm install
+# NOTE that the destination path is important, and must be called `dmd.db`
+cp /path/to/dmd.db web/sources/dmd/dmd.db
+npm run sources
+npm run dev
+# this will open it up locally
+```
