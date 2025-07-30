@@ -7,7 +7,7 @@ A presentation of (some of) the data that will be explored as part of the [July 
 
 This web application provides insights into the [dependency-management-data](https://dmd.tanna.dev) project's [example data](https://gitlab.com/tanna.dev/dependency-management-data-example/).
 
-This uses [Evidence](https://evidence.dev/) to provide a set of visualisations on top of the underlying SQLite database.
+This uses [Evidence](https://evidence.dev/) to provide a set of visualisations on top of the underlying SQLite database, and can be found [on GitHub.com](https://github.com/deps-fyi/gophercon-uk-2025/tree/main/web).
 
 A number of queries are provided here for an idea of interesting things you can do with the data, but there will likely be some organisation-specific things you can think of, based on this data!
 
