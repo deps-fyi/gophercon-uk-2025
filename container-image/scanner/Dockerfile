@@ -5,6 +5,11 @@ ARG TARGETOS TARGETARCH
 
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go install gitlab.com/tanna.dev/dependabot-graph@latest
 
+# TODO remove workaround after https://github.com/golang/go/issues/74979
+RUN if [ -f /go/bin/linux_arm64/dependabot-graph ]; then \
+			mv /go/bin/linux_arm64/dependabot-graph /go/bin/dependabot-graph; \
+	fi
+
 FROM node:22.13
 
 LABEL org.opencontainers.image.source https://github.com/deps-fyi/gophercon-uk-2025
