@@ -7,9 +7,6 @@ This is the corresponding supporting details for the GopherCon 2025 tutorial, [_
 > [!NOTE]
 > If you've never logged into the GitHub Container Registry before, you'll need to follow [these instructions](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
-> [!WARNING]
-> The pre-built image may not work on ARM64 (i.e. ARM-based Macs).
-
 For simplicity, there is a `make` task to download the scanning image, which contains prerequisites:
 
 ```sh
