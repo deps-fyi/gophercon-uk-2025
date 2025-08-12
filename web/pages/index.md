@@ -3,7 +3,7 @@ title: Dependency Management Data @ GopherCon UK 2025
 ---
 A presentation of (some of) the data that will be explored as part of the [GopherCon UK 2025 tutorial](https://www.gophercon.co.uk/) by [Jamie Tanna](https://www.jvt.me).
 
-<img class=markdown alt="The GopherCon UK logo, a gopher in a top hat next to the text 'GopherConUK'" src="https://www.gophercon.co.uk/assets/images/gophercon.svg" style="width: 30%" />
+<img class=markdown alt="The GopherCon UK logo, a gopher in a top hat next to the text 'GopherConUK'" src="https://www.gophercon.co.uk/assets/images/gophercon.svg" style="width: 30%; background-color: white" />
 
 This web application provides insights into the [dependency-management-data](https://dmd.tanna.dev) project's [example data](https://gitlab.com/tanna.dev/dependency-management-data-example/).
 
