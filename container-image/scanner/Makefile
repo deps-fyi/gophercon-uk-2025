@@ -25,3 +25,19 @@ run: has_image
 run-debug: has_image
 	# run with additional DEBUG_MODE env var
 	$(MAKE) run RENOVATE_LOG_LEVEL=debug
+
+multiarch_push:
+	docker build --platform=linux/amd64 -t ghcr.io/deps-fyi/gophercon-uk-2025:amd64 .
+	docker build --platform=linux/arm64 -t ghcr.io/deps-fyi/gophercon-uk-2025:arm64 .
+
+	docker push ghcr.io/deps-fyi/gophercon-uk-2025:amd64
+	docker push ghcr.io/deps-fyi/gophercon-uk-2025:arm64
+
+	docker manifest create ghcr.io/deps-fyi/gophercon-uk-2025:latest \
+		ghcr.io/deps-fyi/gophercon-uk-2025:amd64 \
+		ghcr.io/deps-fyi/gophercon-uk-2025:arm64
+
+	docker manifest annotate ghcr.io/deps-fyi/gophercon-uk-2025:latest ghcr.io/deps-fyi/gophercon-uk-2025:amd64 --os linux --arch amd64
+	docker manifest annotate ghcr.io/deps-fyi/gophercon-uk-2025:latest ghcr.io/deps-fyi/gophercon-uk-2025:arm64 --os linux --arch arm64
+
+	docker manifest push ghcr.io/deps-fyi/gophercon-uk-2025:latest
