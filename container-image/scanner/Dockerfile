@@ -1,20 +1,22 @@
 # NOTE that you should be digest pinning!
-FROM --platform=$BUILDPLATFORM golang:1.24 AS builder
+FROM --platform=$BUILDPLATFORM golang:1.24-alpine AS builder
 # these will get injected in by Docker
 ARG TARGETOS TARGETARCH
 
-RUN GOOS=$TARGETOS GOARCH=$TARGETARCH go install gitlab.com/tanna.dev/dependabot-graph@latest
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go install gitlab.com/tanna.dev/dependabot-graph@latest
 
 # TODO remove workaround after https://github.com/golang/go/issues/74979
 RUN if [ -f /go/bin/linux_arm64/dependabot-graph ]; then \
 			mv /go/bin/linux_arm64/dependabot-graph /go/bin/dependabot-graph; \
 	fi
 
-FROM node:22.13
+FROM node:22.13-alpine
 
 LABEL org.opencontainers.image.source https://github.com/deps-fyi/gophercon-uk-2025
 
 WORKDIR /app
+
+RUN apk add --no-cache bash git
 
 RUN npm i -g @jamietanna/renovate-graph
 
