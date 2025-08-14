@@ -4,6 +4,11 @@ This is the corresponding supporting details for the GopherCon 2025 tutorial, [_
 
 More discussion on the [GopherCon UK Slack: #tutorial-story-dependency-organisation](https://gopherconuk.slack.com/archives/C099J31GMNH).
 
+## Prerequisites
+
+- Have Docker installed (to use pre-built container with core dependencies needed)
+- Install the Dependency Management Data CLI, `dmd` [via docs](https://dmd.tanna.dev/cookbooks/getting-started/#installing-the-dmd-cli)
+
 ## Scanning repos
 
 > [!NOTE]
