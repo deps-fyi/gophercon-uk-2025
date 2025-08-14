@@ -31,10 +31,28 @@ This allows a comparison between the data that GitHub Advanced Security's Depend
 
 (Currently only supports GitHub.com)
 
+> [!NOTE]
+> You will need a Personal Access Token created for this.
+>
+> If you will only be scanning public repositories, you can create a [Personal Access Token (Classic) with `public_repo` scope](https://github.com/settings/tokens/new?scopes=public_repo).
+>
+> For a fine-grained Personal Access Token, you will need:
+>
+> - Contents: `Read only`
+> - Issues: `Read only`
+> - Metadata: `Read only`
+>
+> Make sure you're selecting the correct Resource Owner of the fine-grained Personal Access Token, and repositories that want to be scanned.
+
 For instance, if we want to run against GitHub.com, we would use:
 
 ```sh
-$ env RENOVATE_TOKEN=$(gh auth token) make -C ./container-image/scanner run
+# NOTE that for ease, I personally use the GitHub token from https://cli.github.com/
+$ export GITHUB_TOKEN=$(gh auth token)
+# Alternatively, set it to the Personal Access Token from above
+$ export GITHUB_TOKEN=ghp_...
+
+$ env RENOVATE_TOKEN=$GITHUB_TOKEN make -C ./container-image/scanner run
 # this will then interactively ask:
 Enter space-separated repo slugs (i.e. oapi-codegen/oapi-codegen): oapi-codegen/oapi-codegen jamietanna-jamietanna
 # ...
@@ -47,7 +65,7 @@ cd /home/jamie/workspaces/gophercon2025/tutorial && dmd import renovate --db dmd
 You can also avoid interactively setting arguments by running:
 
 ```sh
-$ env RENOVATE_TOKEN=$(gh auth token) make -C ./container-image/scanner run oapi-codegen/oapi-codegen
+$ env RENOVATE_TOKEN=$GITHUB_TOKEN make -C ./container-image/scanner run oapi-codegen/oapi-codegen
 ```
 
 ### Scanning GitLab repositories
