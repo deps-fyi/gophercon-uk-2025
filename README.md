@@ -2,6 +2,8 @@
 
 This is the corresponding supporting details for the GopherCon 2025 tutorial, [_What story does your dependency tree tell you about your organisation?_](https://talks.jvt.me/dmd-tutorial/) by [Jamie Tanna](https://www.jvt.me).
 
+More discussion on the [GopherCon UK Slack: #tutorial-story-dependency-organisation](https://gopherconuk.slack.com/archives/C099J31GMNH).
+
 ## Scanning repos
 
 > [!NOTE]
