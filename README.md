@@ -104,6 +104,23 @@ It is also possible to build this container image from source:
 make -C ./container-image/scanner build
 ```
 
+### Not using the pre-built container
+
+If you've not pre-downloaed the ~700MB container image, and don't want to - or don't want to build it up from source - you can also "just" use the CLIs yourself.
+
+You will need:
+
+- NodeJS 22.13 (other 22.x _likely_ fine)
+- [renovate-graph](https://gitlab.com/tanna.dev/renovate-graph)
+- [dependabot-graph](https://gitlab.com/tanna.dev/dependabot-graph) (if scanning GitHub repos)
+
+You could modify `container-image/scanner/scan.sh` to use `npx` to avoid a global install of `renovate-graph`:
+
+```diff
+-env LOG_LEVEL=warn OUT_DIR=out/renovate-graph RENOVATE_DRY_RUN=lookup renovate-graph $repo_slugs
++env LOG_LEVEL=warn OUT_DIR=out/renovate-graph RENOVATE_DRY_RUN=lookup npx @jamietanna/renovate-graph@latest $repo_slugs
+```
+
 ### `renovate-graph` debug logs
 
 For ease, it is also possible to use `make ... run-debug` to get the full `renovate-graph` debug logs for a given Renovate run.
